@@ -10,6 +10,25 @@ s;fah;efijawoefjaeboejf;ajfa;ejioaj;efiha;eojw
              aAudio.play();
          }
      }
+        <a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a>
+      <video id="myVideo">
+        <source src="https://my.namejeff.com/T5AsHdmR.mp4" type="video/mp4">
+      </video>
+      <script>
+      var vid = document.getElementById("myVideo"); 
+
+function playVid() { 
+    vid.play(); 
+} 
+
+function pauseVid() { 
+    vid.pause(); 
+} 
+function changespeeders() {
+        vid.playbackRate = document.getElementById("speed").value
+}   
  </script>
  <a onclick="myAudioFunction('a');">
      <img src="https://my.namejeff.com/aWqS2xfD.png">
@@ -31,8 +50,11 @@ s;fah;efijawoefjaeboejf;ajfa;ejioaj;efiha;eojw
      <img src="https://my.namejeff.com/aWqS2xfD.png">
       </a>
 <br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FH3FqcJtbM4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
+<button onclick="playVid()">CLIK ME 2 PLAY</button>
+      <button onclick="pauseVid()">CLIK ME 2 PASUE</button>
+      <input type="text" id="speed" name="speed">
+      <button onclick="changespeeders()">CLIK ME 2 set speedy</button>
 <h3>
 hihihi hi hi
 </h3>
