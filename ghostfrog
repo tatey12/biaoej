@@ -2,6 +2,34 @@
 <h1>
 s;fah;efijawoefjaeboejf;ajfa;ejioaj;efiha;eojw
 </h1>
+<script>
+     var aAudio = new Audio('https://my.namejeff.com/fvzqjPma.mp3');
+   
+     function myAudioFunction(letter) {
+         if(letter == 'a') {
+             aAudio.play();
+         }
+     }
+ </script>
+ <a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a><a onclick="myAudioFunction('a');">
+     <img src="https://my.namejeff.com/aWqS2xfD.png">
+      </a>
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FH3FqcJtbM4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
