@@ -1,32 +1,80 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    
-  </head>
-  <body>
 
-  <form action="http://sigv4examplebucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-    Key to upload: 
-    <input type="input"  name="key" value="user/user1/${filename}" /><br />
-    <input type="hidden" name="acl" value="public-read" />
-    <input type="hidden" name="success_action_redirect" value="http://sigv4examplebucket.s3.amazonaws.com/successful_upload.html" />
-    Content-Type: 
-    <input type="input"  name="Content-Type" value="image/jpeg" /><br />
-    <input type="hidden" name="x-amz-meta-uuid" value="14365123651274" /> 
-    <input type="hidden" name="x-amz-server-side-encryption" value="AES256" /> 
-    <input type="text"   name="X-Amz-Credential" value="AKIAIOSFODNN7EXAMPLE/20151229/us-east-1/s3/aws4_request" />
-    <input type="text"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
-    <input type="text"   name="X-Amz-Date" value="20151229T000000Z" />
+<head>
+    <title>AWS S3 File Upload</title>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
+</head>
 
-    Tags for File: 
-    <input type="input"  name="x-amz-meta-tag" value="" /><br />
-    <input type="hidden" name="Policy" value='<Base64-encoded policy string>' />
-    <input type="hidden" name="X-Amz-Signature" value="<signature-value>" />
-    File: 
-    <input type="file"   name="file" /> <br />
-    <!-- The elements after this will be ignored -->
-    <input type="submit" name="submit" value="Upload to Amazon S3" />
-  </form>
-  
+<body>
+    <input type="file" id="file-chooser" />
+    <button id="upload-button">Upload to S3</button>
+    <div id="results"></div>
+    <script type="text/javascript">
+    AWS.config.region = 'us-east-2'; // 1. Enter your region
+
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'us-east-2:7d75cc0c-a08f-40f1-a312-41e419858e53' // 2. Enter your identity pool
+    });
+
+    AWS.config.credentials.get(function(err) {
+        if (err) alert(err);
+        console.log(AWS.config.credentials);
+    });
+
+    var bucketName = 's3.queddd.info'; // Enter your bucket name
+    var bucket = new AWS.S3({
+        params: {
+            Bucket: bucketName
+        }
+    });
+
+    var fileChooser = document.getElementById('file-chooser');
+    var button = document.getElementById('upload-button');
+    var results = document.getElementById('results');
+    button.addEventListener('click', function() {
+
+        var file = fileChooser.files[0];
+
+        if (file) {
+
+            results.innerHTML = '';
+            var objKey = 'testing/' + file.name;
+            var params = {
+                Key: objKey,
+                ContentType: file.type,
+                Body: file,
+                ACL: 'public-read'
+            };
+
+            bucket.putObject(params, function(err, data) {
+                if (err) {
+                    results.innerHTML = 'ERROR: ' + err;
+                } else {
+                    listObjs();
+                }
+            });
+        } else {
+            results.innerHTML = 'Nothing to upload.';
+        }
+    }, false);
+    function listObjs() {
+        var prefix = 'testing';
+        bucket.listObjects({
+            Prefix: prefix
+        }, function(err, data) {
+            if (err) {
+                results.innerHTML = 'ERROR: ' + err;
+            } else {
+                var objKeys = "";
+                data.Contents.forEach(function(obj) {
+                    objKeys += obj.Key + "<br>";
+                });
+                results.innerHTML = objKeys;
+            }
+        });
+    }
+    </script>
+</body>
+
 </html>
