@@ -39,7 +39,7 @@
         if (file) {
 
             results.innerHTML = '';
-            var objKey = 'testing/' + file.name;
+            var objKey = 'useruploads/' + file.name;
             var params = {
                 Key: objKey,
                 ContentType: file.type,
@@ -59,7 +59,7 @@
         }
     }, false);
     function listObjs() {
-        var prefix = '/useruploads/';
+        var prefix = 'testing';
         bucket.listObjects({
             Prefix: prefix
         }, function(err, data) {
@@ -70,7 +70,7 @@
                 data.Contents.forEach(function(obj) {
                     objKeys += obj.Key + "<br>";
                 });
-                results.innerHTML = objKeys;
+                results.innerHTML = "s3.queddd.info/" + objKeys;
             }
         });
     }
