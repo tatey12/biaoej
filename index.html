@@ -1,53 +1,32 @@
-<!DOCTYPE html>
-<style>
-body {
-  background-color: black;
-}
-h1 {
-  color: #fff;
-}
-h3 {
-  color: #fff;
-}
-</style>
-<h1 style="text-align:center;" >The WebSite of Qued</h1>
-<h3 style="text-align:center;">We do not think of this as a website,</h3>
-<br>
-<h3 style="text-align:center;"> But rather, as a WE!site. </h3>
-<br>
-<h3 style="text-align:center;">To gain access to the rest of the website, please click the button 500,000 times. </h3>
-<h3 style="text-align:center;" id = "clicks"> 500000 clicks remain. <h3>
-<script>
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-var clickse = 500000
-async function playAudio() {
-  clickse = clickse - 1
-  var element = document.getElementById("clicks");
-  element.innerHTML = clickse + " clicks remain."
-  speedle = 0
-  audiolinks = ['https://my.namejeff.com/hewL7l7Z.mp3','https://my.namejeff.com/uUbT0PEH.mp3']
-  audiotypes = ['audio/mp3','audio/mp3']
-  awadja = getRandomInt(0,audiolinks.length)
-  var audio = new Audio(audiolinks[awadja]);  
-  audio.type = audiotypes[awadja];
+<html>
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+  </head>
+  <body>
+
+  <form action="http://sigv4examplebucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+    Key to upload: 
+    <input type="input"  name="key" value="user/user1/${filename}" /><br />
+    <input type="hidden" name="acl" value="public-read" />
+    <input type="hidden" name="success_action_redirect" value="http://sigv4examplebucket.s3.amazonaws.com/successful_upload.html" />
+    Content-Type: 
+    <input type="input"  name="Content-Type" value="image/jpeg" /><br />
+    <input type="hidden" name="x-amz-meta-uuid" value="14365123651274" /> 
+    <input type="hidden" name="x-amz-server-side-encryption" value="AES256" /> 
+    <input type="text"   name="X-Amz-Credential" value="AKIAIOSFODNN7EXAMPLE/20151229/us-east-1/s3/aws4_request" />
+    <input type="text"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
+    <input type="text"   name="X-Amz-Date" value="20151229T000000Z" />
+
+    Tags for File: 
+    <input type="input"  name="x-amz-meta-tag" value="" /><br />
+    <input type="hidden" name="Policy" value='<Base64-encoded policy string>' />
+    <input type="hidden" name="X-Amz-Signature" value="<signature-value>" />
+    File: 
+    <input type="file"   name="file" /> <br />
+    <!-- The elements after this will be ignored -->
+    <input type="submit" name="submit" value="Upload to Amazon S3" />
+  </form>
   
-  try {
-    await audio.play();
-    console.log('Playing...');
-    window.setInterval(function(){
-    speedle = speedle + .1
-    audio.playbackRate=speedle;
-}, 1000);
-  } catch (err) {
-    console.log('Failed to play...' + err);
-  }
-}
-</script> 
-<input style="text-align:center" id="clickMe" type="button"  value="CLIK ME" onclick="playAudio();" />
-  <a href = "/ghostfrog" style="text-align:center;">click here to go to forg </a>
-  <meta property="og:title" content="W0RLD OF QUEDZTERS!" />
-  <meta property="og:image" content="https://my.namejeff.com/xTEUCMVU.png" />
+</html>
