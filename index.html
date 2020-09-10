@@ -51,7 +51,7 @@
                 if (err) {
                     results.innerHTML = 'ERROR: ' + err;
                 } else {
-                    listObjs();
+                    results.innerHTML = "s3.queddd.info/" + poopenstein + file.type
                 }
             });
         } else {
@@ -70,7 +70,7 @@
                 data.Contents.forEach(function(obj) {
                     objKeys += obj.Key + "<br>";
                 });
-                results.innerHTML = "s3.queddd.info/" + poopenstein + file.type;
+                
             }
         });
     }
