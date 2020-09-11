@@ -33,18 +33,16 @@
     var button = document.getElementById('upload-button');
     var results = document.getElementById('results');
     button.addEventListener('click', function() {
-
         var file = fileChooser.files[0];
         var filename = document.getElementById("filetitler").value
-        if (filename == ""){
-            let poopenstein = Math.random().toString(36).substring(7);
-        } else {
-            let poopenstein = filename
-        }
-
+        let poopenstein
         if (file) {
-
             results.innerHTML = '';
+            if (filename == ""){
+            poopenstein = Math.random().toString(36).substring(7);
+        } else {
+            poopenstein = filename
+        }
             var objKey = 'useruploads/' + file.name;
             var params = {
                 Key: "useruploads/" + poopenstein + "." + file.name.split('.').pop(),
