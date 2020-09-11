@@ -8,7 +8,7 @@
 <body>
     <input type="file" id="file-chooser" />
     <textarea id="filetitler" name="w3review" rows="4" cols="50">TitleYourFile</textarea>
-    <button id="upload-button">Upload to S3</button>
+    <button id="upload-button">Upload to s3.queddd.info</button>
     <div id="results"></div>
     <script type="text/javascript">
     AWS.config.region = 'us-east-2'; // 1. Enter your region
@@ -32,10 +32,15 @@
     var fileChooser = document.getElementById('file-chooser');
     var button = document.getElementById('upload-button');
     var results = document.getElementById('results');
-    let poopenstein = Math.random().toString(36).substring(7);
     button.addEventListener('click', function() {
 
         var file = fileChooser.files[0];
+        var filename = document.getElementById("filetitler").value
+        if (filename == ""){
+            let poopenstein = Math.random().toString(36).substring(7);
+        } else {
+            let poopenstein = filename
+        }
 
         if (file) {
 
