@@ -3,6 +3,28 @@
 <script>
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#FF0000";
-ctx.fillRect(0, 0, 150, 75);
+let starsX = []
+let starsY = []
+let starsA = []
+function rand(min, max) {
+    return Math.random() * (max - min) + min;
+}
+ctx.fillStyle = "#000000";
+ctx.fillRect(0, 0, 500, 500);
+function initstars(iter){
+  for (let step = 0; step < iter; step++) {
+    starsA.pop(rand(1,3))
+    starsX.pop(rand(450,500))
+    starsY.pop(rand(0,500))
+  }
+}
+while (true){
+  let pointer = 0
+  starsX.forEach(async function() {
+    pointer++
+    ctx.fillRect(starsX[pointer], starsY[pointer], 3, 3);
+    starsX.splice(1, pointer, starsX[pointer] + starsA[pointer]);
+    sleep(50)
+})
+}
 </script>
