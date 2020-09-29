@@ -20,7 +20,7 @@ function initstars(iter){
 }
   initstars(75);
   let pointer = 0
-  starsX.forEach(async function() {
+    for (let step = 0; step < iter; step++) {
     pointer++
     ctx.fillRect(starsX[pointer], starsY[pointer], 3, 3);
     starsX.splice(1, pointer, starsX[pointer] + starsA[pointer]);
@@ -28,6 +28,6 @@ function initstars(iter){
     ctx.strokeStyle = "#FFFFFF";
     ctx.strokeRect(starsX[pointer], starsY[pointer], 4, 4);
     console.log(pointer)
-})
+  }
 
 </script>
