@@ -18,7 +18,7 @@ function initstars(iter){
     starsY.pop(rand(0,500))
   }
 }
-while (true){
+
   let pointer = 0
   starsX.forEach(async function() {
     pointer++
@@ -28,5 +28,5 @@ while (true){
     ctx.strokeStyle = "#FFFFFF";
     ctx.strokeRect(starsX[pointer], starsY[pointer], 4, 4);
 })
-}
+
 </script>
