@@ -1,16 +1,13 @@
 <!DOCTYPE HTML>
 <style>
-.body {background-color: light-grey;}
-.header {
-  padding: 20px;
-  text-align: center;
-  background: #5440cd;
-  color: white;
-  font-size: 30px;
-}
 </style>
 <body>
-<div class="header">
-  <h1>qued reddit clone</h1>
-</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on("connect", () => {
+socket.emit("join",socket.id)
+});
+</script>
 </body>
