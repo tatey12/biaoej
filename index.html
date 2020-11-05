@@ -1,85 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>QUEDD!!!flie Upload</title>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
-</head>
+<h1 id = "bitchface">
+</h1>
 
-<body>
-    <input type="file" id="file-chooser" />
-    <textarea id="filetitler" name="w3review" rows="4" cols="50">TitleYourFile</textarea>
-    <button id="upload-button">Upload to s3.queddd.info</button>
-    <div id="results"></div>
-    <script type="text/javascript">
-    AWS.config.region = 'us-east-2'; // 1. Enter your region
-
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'us-east-2:7d75cc0c-a08f-40f1-a312-41e419858e53' // 2. Enter your identity pool
-    });
-
-    AWS.config.credentials.get(function(err) {
-        if (err) alert(err);
-        console.log(AWS.config.credentials);
-    });
-
-    var bucketName = 's3.queddd.info'; // Enter your bucket name
-    var bucket = new AWS.S3({
-        params: {
-            Bucket: bucketName
-        }
-    });
-
-    var fileChooser = document.getElementById('file-chooser');
-    var button = document.getElementById('upload-button');
-    var results = document.getElementById('results');
-    button.addEventListener('click', function() {
-        var file = fileChooser.files[0];
-        var filename = document.getElementById("filetitler").value
-        let poopenstein
-        if (file) {
-            results.innerHTML = '';
-            if (filename == ""){
-            poopenstein = Math.random().toString(36).substring(7);
-        } else {
-            poopenstein = filename
-        }
-            var objKey = 'useruploads/' + file.name;
-            var params = {
-                Key: "useruploads/" + poopenstein + "." + file.name.split('.').pop(),
-                ContentType: file.type,
-                Body: file,
-                ACL: 'public-read'
-            };
-
-            bucket.putObject(params, function(err, data) {
-                if (err) {
-                    results.innerHTML = 'ERROR: ' + err;
-                } else {
-                    const bonermaster = 'http://s3.queddd.info/useruploads/' + poopenstein + '.' + file.name.split('.').pop()
-                    results.innerHTML = bonermaster
-                }
-            });
-        } else {
-            results.innerHTML = 'Nothing to upload.';
-        }
-    }, false);
-    function listObjs() {
-        var prefix = 'useruploads';
-        bucket.listObjects({
-            Prefix: prefix
-        }, function(err, data) {
-            if (err) {
-                results.innerHTML = 'ERROR: ' + err;
-            } else {
-                var objKeys = "";
-                data.Contents.forEach(function(obj) {
-                    objKeys += obj.Key + "<br>";
-                });
-                
-            }
-        });
-    }
-    </script>
-</body>
-
-</html>
+<script>
+butt = 0
+while(1==1){
+butt = butt + 1
+document.getElementById("bitchface").value = butt;
+}
+</script>
